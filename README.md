@@ -20,7 +20,7 @@ Number Guesser: Create a guessing game with hints for too high/low guesses.
 Password Strength Checker: Evaluate password strength based on specific criteria.
 Fibonacci Sequence: Generate the Fibonacci sequence up to a given number of terms.
 File Manipulation: Count word occurrences in a text file and display them alphabetically.
-Web Scraper: Build a scraper to extract data from websites using libraries like BeautifulSoup.
+Web Scraper: Build a scraper to extract data from websites using libraries like BeautifulSoup.<br>
 Level 3: Advanced Tasks<br>
 Data Visualization Tool: Create interactive visualizations using Matplotlib, Seaborn, or Plotly.
 Task Automation: Automate a repetitive task, such as data processing or file management.
