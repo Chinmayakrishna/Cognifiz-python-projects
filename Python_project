@@ -1,0 +1,231 @@
+Code of Level1,2,3:
+
+#LEVEL1
+#STRING REVERSAL
+#TASK 1
+def string_reversal(input_string):
+    return input_string [::-1]
+
+string="vasudeva"
+print(string,"This is real")
+print("The Revarsed String is", string_reversal(string))
+#TASK 2
+#Temprature conversation
+
+def temperature_conversion():
+    temp = float(input("Enter the temperature value: "))
+    unit = input("Enter the unit (C for Celsius, F for Fahrenheit): ").upper()
+    
+    if unit == 'C':
+        converted = (temp * 9/5) + 32
+        print(f"{temp}°C is equal to {converted}°F")
+    elif unit == 'F':
+        converted = (temp - 32) * 5/9
+        print(f"{temp}°F is equal to {converted}°C")
+    else:
+        print("Invalid unit. Please enter 'C' or 'F'.")
+temperature_conversion()
+
+#TASK 3
+#Email validator
+def validate_email(email):
+    if "@" in email and "." in email.split("@")[-1]:
+        return True
+    return False
+
+# Taking email input from the user And valid or not
+email = input("Enter your email address: ")
+if validate_email(email):
+    print("Valid Email!")
+else:
+
+    print("Invalid Email. Please enter a correct email address.")
+
+def validate_email(email):
+    if '@' in email and "." in email.split("@")[-1]:
+        return True
+    return False
+email=input("enter the email")
+if validate_email(email):
+    print("valid email")
+else:
+    print("Invalid email")
+
+#TASK 4
+#Calculator Program
+def calculator():
+    num1 = float(input("Enter the first number: "))
+    operator = input("Enter an operator (+, -, *, /, %): ")
+    num2 = float(input("Enter the second number: "))
+
+    if operator == '+':
+        print(f"Result: {num1 + num2}")
+    elif operator == '-':
+        print(f"Result: {num1 - num2}")
+    elif operator == '*':
+        print(f"Result: {num1 * num2}")
+    elif operator == '/':
+        if num2 != 0:
+            print(f"Result: {num1 / num2}")
+        else:
+            print("Error: Division by zero!")
+    elif operator == '%':
+        print(f"Result: {num1 % num2}")
+    else:
+        print("Invalid operator.")
+# Example usage
+calculator()
+
+#TASK 5
+ #Palindrom checker
+def is_palindrome(text):
+    cleaned_text = text.replace(" ", "").lower()  
+    return cleaned_text == cleaned_text[::-1] 
+
+# Get input from the user
+text = input("Enter a word or sentence: ")
+if is_palindrome(text):
+    print(f"'{text}' is a palindrome!")
+else:
+    print(f"'{text}' is not a palindrome.")
+
+#LEVEL 2
+#TASK1
+#Guessing Game
+import random
+import random
+
+def guessing_game():
+    number = random.randint(1, 100)
+    guess = None
+
+    print("Guess the number between 1 and 100!")
+
+    while guess != number:
+        try:
+            guess = int(input("Enter your guess: "))
+
+            if guess < 1 or guess > 100:
+                print("Please enter a number between 1 and 100.")
+            elif guess < number:
+                print("Too low! Try again.")
+            elif guess > number:
+                print("Too high! Try again.")
+            else:
+                print(f"Congratulations! You guessed it right: {number}")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+guessing_game()
+
+#TASK2
+#Password strength checker
+def password_strength_checker(password):
+    length_check = len(password) >= 8
+    has_upper = any(char.isupper() for char in password)
+    has_lower = any(char.islower() for char in password)
+    has_digit = any(char.isdigit() for char in password)
+    has_special = any(char in "!@#$%^&*()-_=+[]{};:'\",.<>?/" for char in password)
+
+    if all([length_check, has_upper, has_lower, has_digit, has_special]):
+        return "Strong Password"
+    else:
+        return "Weak Password"
+password = input("Enter a password to check its strength: ")
+print(password_strength_checker(password))
+
+#TASK3
+#Fibonacci series
+def fibonacci_sequence(n):
+    sequence = [0, 1]
+    for i in range(2, n):
+        next_number = sequence[-1] + sequence[-2]
+        sequence.append(next_number)
+    return sequence[:n]
+
+# Example usage
+n = int(input("Enter the number of terms for the Fibonacci sequence: "))
+print(f"Fibonacci sequence: {fibonacci_sequence(n)}")
+
+#TASK 4
+#File manipulation
+def word_count(filename):
+    try:
+        with open(filename, 'r') as file:
+            text = file.read()
+        
+        words = text.split()
+        word_freq = {}
+        
+        for word in words:
+            word = word.lower().strip(",.!?;:\"()[]{}")  # Clean punctuation and lowercase
+            word_freq[word] = word_freq.get(word, 0) + 1
+
+        for word, count in sorted(word_freq.items()):
+            print(f"{word}: {count}")
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' was not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+# Example usage
+filename = input("Enter the filename (e.g., sample.txt): ")
+word_count(filename)
+
+#LEVEL 3
+# Web Scraper Using BeautifulSoup
+#TASK 1
+
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_titles(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Check for request errors
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        titles = soup.find_all('h2')  # Find all <h2> tags (modify as needed)
+        
+        for idx, title in enumerate(titles, 1):
+            print(f"{idx}. {title.get_text()}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data from {url}: {e}")
+url = input("Enter a website URL (e.g., https://example.com): ")
+scrape_titles(url)
+
+#TASK 2
+#Data vishulisation Tools
+import matplotlib.pyplot as plt
+
+def plot_data():
+    categories = ["A", "B", "C", "D"]
+    values = [10, 25, 17, 30]
+    
+    plt.bar(categories, values)
+    plt.title("Sample Bar Chart")
+    plt.xlabel("Categories")
+    plt.ylabel("Values")
+    plt.show()
+# Example usage
+plot_data()
+
+#TASK 3
+#Automate a Task (File Renaming)
+import os
+def rename_files(directory, prefix):
+    try:
+        for filename in os.listdir(directory):
+            if filename.endswith(".txt"):
+                new_name = prefix + filename
+                os.rename(os.path.join(directory, filename), os.path.join(directory, new_name))
+        print("Files renamed successfully.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+# Example usage
+directory = input("Enter the directory path: ")
+prefix = input("Enter the prefix to add: ")
+rename_files(directory, prefix)
+
+
+
