@@ -1,13 +1,13 @@
 
-Overview
+Overview<br>
     The Python Development Internship at Cognifyz provides hands-on tasks that enhance your Python programming skills. The tasks are categorized into three levels based on complexity, focusing on solving real-world problems using Python. 
     
-Objective
+Objective<br>
 Strengthen Python programming skills by working on practical and relevant tasks.
 Gain experience in solving real-world problems using Python for automation, data visualization, web scraping, and more.
 Demonstrate proficiency in Python by completing levels tailored to varying levels of expertise.
 Showcase completed work through documentation and LinkedIn posts to build professional credibility.
-Key Activities
+Key Activities<br>
 Level 1: Beginner Tasks
 String Reversal: Write a function to reverse a string.
 Temperature Conversion: Create a program to convert temperatures between Celsius and Fahrenheit.
